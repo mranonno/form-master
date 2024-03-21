@@ -16,13 +16,17 @@ const HooksForm = () => {
           name="name"
         />
         <br />
+        <fieldset>
+        <legend>Email</legend>
+        {/* <label htmlFor="email">Email</label> */}
         <input
           className="border rounded-lg py-2 px-4 mt-2"
           placeholder="email"
           type="email"
           name="email"
-          id=""
+          id="email"
         />
+        </fieldset>
         <br />
         <input
           className="border rounded-lg py-2 px-4 mt-2"
