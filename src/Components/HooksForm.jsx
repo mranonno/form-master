@@ -1,22 +1,15 @@
-import { useEffect, useRef } from "react";
+import useInputState from "../hooks/useInputState";
 
-const RefForm = () => {
-    useEffect(() => {
-        nameRef.current.focus()
-    },[])
-  const nameRef = useRef(null);
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(nameRef.current.value);
-  };
+const HooksForm = () => {
+    const nameState=useInputState('Das')
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(nameState.value);
+    }
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input
-                  ref={nameRef}
-                  defaultValue={'Name'}
+        <input {...nameState}
           className="border rounded-lg py-2 px-4"
           placeholder="name"
           type="text"
@@ -24,7 +17,6 @@ const RefForm = () => {
         />
         <br />
         <input
-          ref={emailRef}
           className="border rounded-lg py-2 px-4 mt-2"
           placeholder="email"
           type="email"
@@ -33,14 +25,12 @@ const RefForm = () => {
         />
         <br />
         <input
-          ref={passwordRef}
           className="border rounded-lg py-2 px-4 mt-2"
           placeholder="password"
           type="password"
           name="password"
           id=""
         />
-
         <br />
         <input
           className="border rounded-lg py-2 px-4 mt-2"
@@ -52,4 +42,4 @@ const RefForm = () => {
   );
 };
 
-export default RefForm;
+export default HooksForm;
